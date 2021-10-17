@@ -9,26 +9,25 @@ import (
 // determine the correctness of position and color
 
 // a "*" is placed for each char from the guess which
-// is correct in both color and position.
+// is correct in both char and position.
 // a "+" indicates the existence of a correct char placed in the wrong position.
 func Fdbk(c []rune, g []rune) []string {
 	b := map[int][2]bool{}
 
 	for i, v := range c {
-
 		if v == g[i] {
 			b[i] = [2]bool{true, true}
 		} else {
-			for _, v2 := range g {
+			for j, v2 := range g {
 				if v2 == v {
 					b[i] = [2]bool{false, true}
+					g[j] = 'X'
 					break
 				} else {
 					b[i] = [2]bool{false, false}
 				}
 			}
 		}
-
 	}
 
 	// fmt.Println(b)
@@ -43,6 +42,7 @@ func Fdbk(c []rune, g []rune) []string {
 			str = append(str, ".")
 		}
 	}
+
 	sort.Strings(str)
 	return str
 }
