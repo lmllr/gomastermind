@@ -10,7 +10,7 @@ import (
 func main() {
 	code := get.RandomCode()[:4]
 
-	fmt.Println(code)
+	// fmt.Println(code)
 	fmt.Println("Crack the secret code 🔒")
 
 	for i := 0; i < 12; i++ {
