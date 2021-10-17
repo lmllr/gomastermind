@@ -8,9 +8,9 @@ import (
 // provides feedback by placing from zero to four chars to
 // determine the correctness of position and color
 
-// A "*" is placed for each char from the guess which
+// a "*" is placed for each char from the guess which
 // is correct in both color and position.
-// A "+" indicates the existence of a correct char placed in the wrong position.
+// a "+" indicates the existence of a correct char placed in the wrong position.
 func Fdbk(c []rune, g []rune) []string {
 	b := map[int][2]bool{}
 
@@ -45,4 +45,14 @@ func Fdbk(c []rune, g []rune) []string {
 	}
 	sort.Strings(str)
 	return str
+}
+
+// check two slices for equality
+func Compare(a, b []rune) bool {
+	for i, v := range a {
+		if v != b[i] {
+			return false
+		}
+	}
+	return true
 }
