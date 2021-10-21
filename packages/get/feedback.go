@@ -11,7 +11,7 @@ import (
 // a "*" is placed for each char from the guess which
 // is correct in both char and position.
 // a "+" indicates the existence of a correct char placed in the wrong position.
-func Fdbk(c []rune, g []rune) []string {
+func Fdbk(c []byte, g []byte) []string {
 	b := map[int][2]bool{}
 
 	for i, v := range c {
@@ -48,7 +48,7 @@ func Fdbk(c []rune, g []rune) []string {
 }
 
 // check two slices for equality
-func Compare(a, b []rune) bool {
+func Compare(a, b []byte) bool {
 	for i, v := range a {
 		if v != b[i] {
 			return false

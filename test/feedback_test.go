@@ -8,8 +8,8 @@ import (
 )
 
 func TestFeedback(t *testing.T) {
-	codemaker := []rune{49, 50, 51, 52}
-	codebreaker := []rune{'🤪', '😛', '😜', '😝'}
+	codemaker := []byte{49, 50, 51, 52}
+	codebreaker := []byte{110, 200, 94, 94}
 
 	want := []string{".", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -17,8 +17,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 50, 51, 52}
-	codebreaker = []rune{49, '😛', 51, '😝'}
+	codemaker = []byte{49, 50, 51, 52}
+	codebreaker = []byte{49, 200, 51, 200}
 
 	want = []string{"*", "*", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -26,8 +26,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 50, 51, 52}
-	codebreaker = []rune{52, 51, 50, 49}
+	codemaker = []byte{49, 50, 51, 52}
+	codebreaker = []byte{52, 51, 50, 49}
 
 	want = []string{"+", "+", "+", "+"}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -35,8 +35,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 50, 51, 52}
-	codebreaker = []rune{23, 50, 50, 50}
+	codemaker = []byte{49, 50, 51, 52}
+	codebreaker = []byte{23, 50, 50, 50}
 
 	want = []string{"*", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -44,8 +44,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 50, 51, 52}
-	codebreaker = []rune{23, 49, 49, 49}
+	codemaker = []byte{49, 50, 51, 52}
+	codebreaker = []byte{23, 49, 49, 49}
 
 	want = []string{"+", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -53,8 +53,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 50, 51, 52}
-	codebreaker = []rune{23, 49, 51, 49}
+	codemaker = []byte{49, 50, 51, 52}
+	codebreaker = []byte{23, 49, 51, 49}
 
 	want = []string{"*", "+", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -62,8 +62,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{51, 50, 54, 49}
-	codebreaker = []rune{49, 97, 97, 97}
+	codemaker = []byte{51, 50, 54, 49}
+	codebreaker = []byte{49, 97, 97, 97}
 
 	want = []string{"+", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -71,8 +71,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{51, 54, 52, 52}
-	codebreaker = []rune{52, 51, 51, 51}
+	codemaker = []byte{51, 54, 52, 52}
+	codebreaker = []byte{52, 51, 51, 51}
 
 	want = []string{"+", "+", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -80,8 +80,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{54, 51, 51, 51}
-	codebreaker = []rune{51, 49, 49, 49}
+	codemaker = []byte{54, 51, 51, 51}
+	codebreaker = []byte{51, 49, 49, 49}
 
 	want = []string{"+", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -90,8 +90,8 @@ func TestFeedback(t *testing.T) {
 	}
 
 	// ...
-	codemaker = []rune{51, 52, 53, 49}
-	codebreaker = []rune{49, 49, 49, 50}
+	codemaker = []byte{51, 52, 53, 49}
+	codebreaker = []byte{49, 49, 49, 50}
 
 	want = []string{"+", ".", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -99,8 +99,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{51, 54, 54, 50}
-	codebreaker = []rune{54, 54, 54, 54}
+	codemaker = []byte{51, 54, 54, 50}
+	codebreaker = []byte{54, 54, 54, 54}
 
 	want = []string{"*", "*", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -108,8 +108,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{52, 54, 51, 51}
-	codebreaker = []rune{51, 51, 49, 50}
+	codemaker = []byte{52, 54, 51, 51}
+	codebreaker = []byte{51, 51, 49, 50}
 
 	want = []string{"+", "+", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -117,8 +117,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{49, 49, 53, 53}
-	codebreaker = []rune{53, 53, 49, 49}
+	codemaker = []byte{49, 49, 53, 53}
+	codebreaker = []byte{53, 53, 49, 49}
 
 	want = []string{"+", "+", "+", "+"}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {
@@ -126,8 +126,8 @@ func TestFeedback(t *testing.T) {
 		fmt.Printf("\tcode: %q,\n\tguess: %q\n\n", codemaker, codebreaker)
 	}
 
-	codemaker = []rune{50, 53, 50, 51}
-	codebreaker = []rune{49, 50, 49, 50}
+	codemaker = []byte{50, 53, 50, 51}
+	codebreaker = []byte{49, 50, 49, 50}
 
 	want = []string{"+", "+", ".", "."}
 	if got := get.Fdbk(codemaker, codebreaker); !equal(got, want) {

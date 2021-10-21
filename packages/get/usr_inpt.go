@@ -11,13 +11,13 @@ import (
 //	1234
 //	5314
 //	1111
-func UsrInpt() []rune {
+func UsrInpt() []byte {
 	scanner := bufio.NewScanner(os.Stdin)
 
-	var usrInpt []rune
+	var usrInpt []byte
 	for {
 		scanner.Scan()
-		usrInpt = []rune(scanner.Text())
+		usrInpt = []byte(scanner.Text())
 
 		if len(usrInpt) == 4 {
 			break
